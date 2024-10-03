@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import {InputGroup} from "react-bootstrap";
 
 function RegistrationForm() {
-    const { Formik } = formik;
+    const {Formik} = formik;
 
     const schema = yup.object().shape({
         username: yup.string().required(),
@@ -27,9 +27,11 @@ function RegistrationForm() {
                 repeatPassword: "",
             }}
         >
-            {({ handleSubmit, handleChange, values, errors }) => (
-                <Form noValidate onSubmit={handleSubmit}>
-                    <Row className="mb-3">
+            {({handleSubmit, handleChange, values, errors}) => (
+                <Form  onSubmit={handleSubmit}
+                      data-bs-theme="dark"
+                >
+                    <Row className="mb-3" data-bs-theme="dark">
                         <Form.Group as={Col} md="4" controlId="validationFormikUsername1">
                             <Form.Label>Username</Form.Label>
                             <InputGroup hasValidation>
@@ -41,6 +43,7 @@ function RegistrationForm() {
                                     value={values.username}
                                     onChange={handleChange}
                                     isInvalid={!!errors.username}
+
                                 />
                                 <Form.Control.Feedback type="invalid" tooltip>
                                     {errors.username}
@@ -103,14 +106,14 @@ function RegistrationForm() {
                             <Form.Control
                                 type="password"
                                 placeholder="Repeat Password"
-                                name="password"
+                                name="repeatPassword"
                                 value={values.repeatPassword}
                                 onChange={handleChange}
-                                isInvalid={!!errors.password}
+                                isInvalid={!!errors.repeatPassword}
                             />
 
                             <Form.Control.Feedback type="invalid" tooltip>
-                                {errors.password}
+                                {errors.repeatPassword}
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Row>
