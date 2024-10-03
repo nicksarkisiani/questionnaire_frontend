@@ -1,8 +1,10 @@
+import RegistrationForm from "./features/auth/components/RegistrationForm.tsx";
+
 function App() {
 
   return (
    <div>
-       Hello World!
+       <RegistrationForm />
    </div>
   )
 }
