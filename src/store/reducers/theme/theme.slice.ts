@@ -9,7 +9,7 @@ const initialState: ThemeState = {
     theme: "light"
 }
 
-export const themeReducer = createSlice({
+export const themeSlice = createSlice({
     name: "theme",
     initialState,
     reducers: {
@@ -21,8 +21,9 @@ export const themeReducer = createSlice({
         },
         changeTheme: (state, action) => {
             state.theme = action.payload
+            localStorage.setItem("theme", state.theme)
         }
     }
 })
 
-export default themeReducer.reducer
+export default themeSlice.reducer
