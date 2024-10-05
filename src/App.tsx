@@ -5,11 +5,13 @@ import {useActions} from "./hooks/useActions.ts";
 
 function App() {
 
-    const {setTheme} = useActions()
+    const {setTheme, setLocale} = useActions()
+
 
     useEffect(() => {
         setTheme()
-    }, [setTheme])
+        setLocale()
+    }, [setTheme, setLocale])
 
   return (
    <div>

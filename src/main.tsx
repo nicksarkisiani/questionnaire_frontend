@@ -5,6 +5,7 @@ import {router} from "./routes";
 import 'bootstrap/dist/css/bootstrap.css';
 import {Provider} from "react-redux";
 import {store} from "./store/store.ts";
+import "./locale/i18n.ts"
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

@@ -5,10 +5,14 @@ import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
 import {InputGroup} from "react-bootstrap";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
+import {useTranslation} from "react-i18next";
 
 function RegistrationForm() {
     const {Formik} = formik;
 
+    const {theme} = useTypedSelector(state => state.theme)
+    const {t} = useTranslation()
     const schema = yup.object().shape({
         username: yup.string().required(),
         email: yup.string().email().required(),
@@ -29,15 +33,15 @@ function RegistrationForm() {
         >
             {({handleSubmit, handleChange, values, errors}) => (
                 <Form  onSubmit={handleSubmit}
-                      data-bs-theme="dark"
+                      data-bs-theme={theme}
                 >
-                    <Row className="mb-3" data-bs-theme="dark">
+                    <Row className="mb-3">
                         <Form.Group as={Col} md="4" controlId="validationFormikUsername1">
-                            <Form.Label>Username</Form.Label>
+                            <Form.Label>{t("username")}</Form.Label>
                             <InputGroup hasValidation>
                                 <Form.Control
                                     type="text"
-                                    placeholder="Username"
+                                    placeholder={t("username")}
                                     aria-describedby="inputGroupPrepend"
                                     name="username"
                                     value={values.username}
@@ -58,10 +62,10 @@ function RegistrationForm() {
                             controlId="validationFormik2"
                             className="position-relative"
                         >
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>{t("email")}</Form.Label>
                             <Form.Control
                                 type="email"
-                                placeholder="Email"
+                                placeholder={t("email")}
                                 name="email"
                                 value={values.email}
                                 onChange={handleChange}
@@ -80,10 +84,10 @@ function RegistrationForm() {
                             controlId="validationFormik3"
                             className="position-relative"
                         >
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label>{t("password")}</Form.Label>
                             <Form.Control
                                 type="password"
-                                placeholder="Password"
+                                placeholder={t("password")}
                                 name="password"
                                 value={values.password}
                                 onChange={handleChange}
@@ -102,10 +106,10 @@ function RegistrationForm() {
                             controlId="validationFormik4"
                             className="position-relative"
                         >
-                            <Form.Label>Repeat Password</Form.Label>
+                            <Form.Label>{t("repeatPassword")}</Form.Label>
                             <Form.Control
                                 type="password"
-                                placeholder="Repeat Password"
+                                placeholder={t("repeatPassword")}
                                 name="repeatPassword"
                                 value={values.repeatPassword}
                                 onChange={handleChange}
@@ -117,7 +121,7 @@ function RegistrationForm() {
                             </Form.Control.Feedback>
                         </Form.Group>
                     </Row>
-                    <Button type="submit">Submit form</Button>
+                    <Button type="submit">{t("submit")}</Button>
                 </Form>
             )}
         </Formik>

@@ -1,0 +1,9 @@
+{
+  "login": "Войти",
+  "registration": "Регистрация",
+  "username": "Имя пользователя",
+  "email": "Почта",
+  "password": "Пароль",
+  "repeatPassword": "Повторите пароль",
+  "submit": "Подтвердить"
+}

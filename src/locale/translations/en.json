@@ -1,0 +1,9 @@
+{
+  "login": "Login",
+  "registration": "Registration",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "repeatPassword": "Repeat Password",
+  "submit": "Submit"
+}
