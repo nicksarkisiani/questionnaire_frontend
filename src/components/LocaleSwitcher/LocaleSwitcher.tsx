@@ -19,8 +19,8 @@ const LocaleSwitcher = () => {
     }
 
     return (
-        <Form.Select onChange={changeLanguage} value={locale}>
-            <option value="en" >English</option>
+        <Form.Select onChange={changeLanguage} value={locale} className="w-25">
+            <option value="en">English</option>
             <option value="ru">Русский</option>
         </Form.Select>
     );
