@@ -4,7 +4,6 @@ import {CustomConfig} from "../types/axios.ts";
 export const $api = axios.create({
     baseURL: import.meta.env.VITE_SERVER_URL,
     withCredentials: true,
-
 })
 
 $api.defaults.withCredentials = true

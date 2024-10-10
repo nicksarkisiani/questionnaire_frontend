@@ -5,5 +5,8 @@
   "email": "Email",
   "password": "Password",
   "repeatPassword": "Repeat Password",
-  "submit": "Submit"
+  "submit": "Submit",
+  "createAccount" : "Create Account",
+  "accountExist": "Already have an account?",
+  "logout": "Logout"
 }

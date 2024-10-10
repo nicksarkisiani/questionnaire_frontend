@@ -3,7 +3,6 @@ import {useEffect} from "react";
 import {useActions} from "./hooks/useActions.ts";
 import {Outlet} from "react-router";
 
-
 function App() {
 
     const {setTheme, setLocale, verify} = useActions()
@@ -11,9 +10,8 @@ function App() {
     useEffect(() => {
         setTheme()
         setLocale()
-        // verify()
+        verify()
     }, [setTheme, setLocale, verify])
-
   return (
    <div>
        <Header />

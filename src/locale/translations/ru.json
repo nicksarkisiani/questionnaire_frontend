@@ -5,5 +5,9 @@
   "email": "Почта",
   "password": "Пароль",
   "repeatPassword": "Повторите пароль",
-  "submit": "Подтвердить"
+  "submit": "Подтвердить",
+  "createAccount" : "Создать аккаунт",
+  "accountExist": "Уже есть аккаунт?",
+  "logout": "Выйти"
+
 }

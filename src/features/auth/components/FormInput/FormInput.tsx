@@ -15,7 +15,7 @@ interface FormInputProps {
 
 const FormInput: FC<FormInputProps> = ({validationId, name, value, translate, error, handleChange, type="text"}) => {
     return (
-        <Form.Group as={Col} md="4" controlId={`validationFormik${validationId}`}>
+        <Form.Group as={Col} controlId={`validationFormik${validationId}`}>
             <Form.Label>{translate}</Form.Label>
             <InputGroup hasValidation>
                 <Form.Control

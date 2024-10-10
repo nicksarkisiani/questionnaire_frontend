@@ -1,5 +1,5 @@
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import RegistrationForm from "../../features/auth/components/registration/RegistrationForm.tsx";
+import LoginForm from "../../features/auth/components/login/LoginForm.tsx";
 
 const MainPage = () => {
 
@@ -7,7 +7,9 @@ const MainPage = () => {
 
     return (
         <>
-            {!isAuthenticated && <RegistrationForm />}
+            {!isAuthenticated && <>
+                <LoginForm />
+            </>}
         </>
     );
 };

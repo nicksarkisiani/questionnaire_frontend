@@ -13,6 +13,10 @@ export default class AuthService {
         return $api.post("/auth/verify");
     }
 
+    static async logout() {
+        return $api.post("/auth/logout");
+    }
+
     static async test(){
         return $api.post("/auth/test", {})
     }
