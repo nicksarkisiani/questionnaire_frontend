@@ -9,7 +9,7 @@ const Header = () => {
     const {isAuthenticated} = useTypedSelector(state => state.user);
 
     return (
-        <Container className="xl-container d-flex flex-row align-items-center justify-content-end gap-5 mt-3">
+        <Container className="xl-container d-flex flex-row align-items-center justify-content-end gap-5 pt-3">
             <ThemeSwitcher />
             <LocaleSwitcher />
             {isAuthenticated && <Logout />}

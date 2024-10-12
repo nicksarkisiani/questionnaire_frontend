@@ -13,11 +13,10 @@ $api.interceptors.response.use(
         return response
     }, async (error: AxiosError) => {
         const config: CustomConfig | undefined = error.config;
-        if (config && error.response?.status === 401 && !config._retry) {
+        if (config && error.response?.status === 401 && !config._retry && !config?.url?.includes("/auth")) {
             config._retry = true;
             try {
                 await axios.post(`${import.meta.env.VITE_SERVER_URL}/auth/verify`, {}, {withCredentials: true});
-
                 return $api(config);
             } catch (e) {
                 return Promise.reject(e);

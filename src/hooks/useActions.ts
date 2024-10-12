@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import {themeSlice} from "../store/reducers/theme/theme.slice.ts"
 import {localeSlice} from "../store/reducers/locale/locale.slice.ts";
 import {verify} from "../store/reducers/user/user.slice.ts"
+import {useMemo} from "react";
 
 const rootActions = {
     ...themeSlice.actions,
@@ -13,5 +14,5 @@ const rootActions = {
 export const useActions = () => {
     const dispatch = useDispatch();
 
-    return bindActionCreators(rootActions, dispatch)
+    return useMemo(() => bindActionCreators(rootActions, dispatch), [dispatch]);
 };
