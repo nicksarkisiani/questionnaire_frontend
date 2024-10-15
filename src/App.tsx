@@ -5,6 +5,8 @@ import {Outlet} from "react-router";
 import 'bootswatch/dist/cosmo/bootstrap.min.css';
 import 'bootswatch/dist/darkly/bootstrap.min.css';
 import {useTypedSelector} from "./hooks/useTypedSelector.ts";
+import {Container} from "react-bootstrap";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 
@@ -31,8 +33,10 @@ function App() {
               id="themeStylesheet"
           />
           <Header/>
-          <Outlet/>
-
+          <Container className="xl-container">
+              <Outlet/>
+          </Container>
+          <ToastContainer />
       </div>
   )
 }

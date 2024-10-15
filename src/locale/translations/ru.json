@@ -8,6 +8,9 @@
   "submit": "Подтвердить",
   "createAccount" : "Создать аккаунт",
   "accountExist": "Уже есть аккаунт?",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "createTemplate": "Создать шаблон",
+  "unexpectedError": "Упс, что-то пошло не так...",
+  "back": "Вернуться на главную"
 
 }

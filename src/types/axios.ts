@@ -7,7 +7,6 @@ interface CustomErrorResponse extends AxiosResponse {
     }
 }
 
-
 export interface CustomAxiosError extends AxiosError {
     response : CustomErrorResponse
 }

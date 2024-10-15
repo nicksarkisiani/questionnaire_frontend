@@ -8,5 +8,8 @@
   "submit": "Submit",
   "createAccount" : "Create Account",
   "accountExist": "Already have an account?",
-  "logout": "Logout"
+  "logout": "Logout",
+  "createTemplate": "Create Template",
+  "unexpectedError": "Oops... something went wrong",
+  "back": "Go to main page"
 }
