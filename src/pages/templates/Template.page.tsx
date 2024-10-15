@@ -8,6 +8,7 @@ import React, {ChangeEvent, useCallback, useState} from "react";
 import {CustomAxiosError} from "../../types/axios.ts";
 import {toast} from "react-toastify";
 import debounce from 'lodash.debounce';
+import {Image} from "react-bootstrap";
 
 export const templateLoader: LoaderFunction = async ({params}): Promise<ITemplate | null> => {
     const templateId = params.id as string;
@@ -54,6 +55,25 @@ const TemplatePage = () => {
         });
     }
 
+    const onImageAdd = (e: ChangeEvent<HTMLInputElement>) => {
+        const selectedFile = e.target.files?.[0];
+        if(selectedFile) {
+            uploadImage(selectedFile)
+        }
+    }
+
+    const uploadImage = async (file: File) => {
+        try {
+            const formData= new FormData();
+            formData.append("file", file);
+            const axiosData: AxiosResponse<ITemplate> = await TemplateService.patchImage(formData, template.id)
+            setTemplate(axiosData.data);
+        } catch (e) {
+            const error = e as CustomAxiosError;
+            if (error) toast.error(error?.response?.data?.message)
+        }
+    }
+
 
     return (
         <Form>
@@ -68,6 +88,11 @@ const TemplatePage = () => {
             <Form.Group className="mt-5">
                 <Form.Label>{t("topic")}</Form.Label>
                 <Form.Control value={template.topic} onChange={onChange} name="topic" onBlur={onBlur}/>
+            </Form.Group>
+            <Form.Group className="mt-5">
+                <Form.Label>{t("image")}</Form.Label>
+                <Form.Control type="file" onChange={onImageAdd}/>
+                {template.imageURL && <Image src={template.imageURL} className="mt-5 w-25 h-25"/>}
             </Form.Group>
         </Form>
     );

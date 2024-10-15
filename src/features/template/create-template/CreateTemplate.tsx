@@ -23,7 +23,7 @@ const CreateTemplate = () => {
     }
 
     return (
-        <Card style={{ width: '10rem' }} className="ml-5 mt-5 bg-light" role="button" onClick={createTemplate}>
+        <Card style={{ width: '10rem' }} className="bg-light mb-5" role="button" onClick={createTemplate}>
             <Card.Body className="d-flex justify-content-center d-flex flex-column align-items-center">
                 <Card.Title className="text-center">{t("createTemplate")}</Card.Title>
                 <BsPatchPlus size={50}/>

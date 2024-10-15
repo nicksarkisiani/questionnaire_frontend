@@ -20,4 +20,12 @@ export default class TemplateService {
     static async patchValues(valuesObject: PartialTemplate, templateId: number) {
         return await $api.patch(`/templates/${templateId}`, valuesObject)
     }
+
+    static async patchImage(file: FormData, templateId: number) {
+        return await $api.patch(`/templates/image/${templateId}`, file)
+    }
+
+    static async getAll() {
+        return await $api.get(`/templates/`)
+    }
 }

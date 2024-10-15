@@ -11,5 +11,9 @@
   "logout": "Logout",
   "createTemplate": "Create Template",
   "unexpectedError": "Oops... something went wrong",
-  "back": "Go to main page"
+  "back": "Go to main page",
+  "title": "Title",
+  "description": "Description",
+  "topic": "Topic",
+  "image": "Image"
 }
