@@ -8,3 +8,5 @@ export interface ITemplate {
     isPublic: boolean
     id: number
 }
+
+export type PartialTemplate = Partial<ITemplate>;

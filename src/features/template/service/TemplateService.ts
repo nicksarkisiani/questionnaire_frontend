@@ -1,4 +1,5 @@
 import {$api} from "../../../http";
+import {PartialTemplate} from "../../../types/templates.ts";
 
 const basicStructure = {
     title: "Untitled",
@@ -14,5 +15,9 @@ export default class TemplateService {
 
     static async getTemplateById(templateId: number) {
         return await $api.get(`/templates/${templateId}`)
+    }
+
+    static async patchValues(valuesObject: PartialTemplate, templateId: number) {
+        return await $api.patch(`/templates/${templateId}`, valuesObject)
     }
 }

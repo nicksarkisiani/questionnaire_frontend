@@ -23,7 +23,7 @@ const Logout = () => {
 
     return (
         <Button variant="danger" onClick={logout}>
-            {t("Logout")}
+            {t("logout")}
         </Button>
     );
 };
