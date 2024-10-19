@@ -4,7 +4,7 @@ import * as formik from "formik";
 import {questionSchema} from "../../schema/question.schema.ts";
 import {Modal} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import React, {FC, useState} from "react";
+import {FC, useState} from "react";
 import QuestionService from "../../service/QuestionService.ts";
 import {CustomAxiosError} from "../../../../types/axios.ts";
 import {toast} from "react-toastify";

@@ -15,5 +15,8 @@
   "title": "Title",
   "description": "Description",
   "topic": "Topic",
-  "image": "Image"
+  "image": "Image",
+  "type": "Type",
+  "state": "Show question?",
+  "createQuestion": "Create New Question"
 }
