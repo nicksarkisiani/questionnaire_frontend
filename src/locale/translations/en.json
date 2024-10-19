@@ -18,5 +18,6 @@
   "image": "Image",
   "type": "Type",
   "state": "Show question?",
-  "createQuestion": "Create New Question"
+  "createQuestion": "Create New Question",
+  "questionForm": "Question Form"
 }
