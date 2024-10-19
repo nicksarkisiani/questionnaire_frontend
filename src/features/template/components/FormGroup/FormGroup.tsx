@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import {useTranslation} from "react-i18next";
-import React, {ChangeEvent, FC, useCallback} from "react";
+import {ChangeEvent, FC, useCallback} from "react";
 import {ITemplate, PartialTemplate} from "../../../../types/templates.ts";
 import debounce from "lodash.debounce";
 
