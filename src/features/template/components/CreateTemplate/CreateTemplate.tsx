@@ -1,12 +1,12 @@
 import {Card} from "react-bootstrap";
 import {BsPatchPlus} from "react-icons/bs";
 import {useTranslation} from "react-i18next";
-import TemplateService from "../service/TemplateService.ts";
+import TemplateService from "../../service/TemplateService.ts";
 import {toast} from "react-toastify";
-import {CustomAxiosError} from "../../../types/axios.ts";
+import {CustomAxiosError} from "../../../../types/axios.ts";
 import {useNavigate} from "react-router";
 import {AxiosResponse} from "axios";
-import {ITemplate} from "../../../types/templates.ts";
+import {ITemplate} from "../../../../types/templates.ts";
 const CreateTemplate = () => {
 
     const {t} = useTranslation();

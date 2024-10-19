@@ -2,7 +2,7 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher.tsx";
 import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher.tsx";
 import {Container} from "react-bootstrap";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import Logout from "../../features/auth/components/logout/Logout.tsx";
+import Logout from "../../features/auth/components/Logout/Logout.tsx";
 
 const Header = () => {
 

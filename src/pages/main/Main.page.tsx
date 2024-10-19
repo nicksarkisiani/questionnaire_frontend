@@ -1,6 +1,6 @@
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import LoginForm from "../../features/auth/components/login/LoginForm.tsx";
-import CreateTemplate from "../../features/template/create-template/CreateTemplate.tsx";
+import LoginForm from "../../features/auth/components/Login/LoginForm.tsx";
+import CreateTemplate from "../../features/template/components/CreateTemplate/CreateTemplate.tsx";
 import {Card, Container} from "react-bootstrap";
 import {useActions} from "../../hooks/useActions.ts";
 import {useEffect} from "react";

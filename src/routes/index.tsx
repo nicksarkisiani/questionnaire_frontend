@@ -1,9 +1,10 @@
 import {createBrowserRouter} from "react-router-dom"
 import App from "../App.tsx";
 import MainPage from "../pages/main/Main.page.tsx";
-import RegistrationForm from "../features/auth/components/registration/RegistrationForm.tsx";
-import TemplatePage, {templateLoader} from "../pages/templates/Template.page.tsx";
+import RegistrationForm from "../features/auth/components/Registration/RegistrationForm.tsx";
+import TemplatePage from "../pages/templates/Template.page.tsx";
 import ErrorElement from "./ErrorElement.tsx";
+import {templateLoader} from "../features/template/loader/template.ts";
 
 export const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
                 element: <MainPage />
             },
             {
-                path: "/registration",
+                path: "/Registration",
                 element: <RegistrationForm />
             },
             {

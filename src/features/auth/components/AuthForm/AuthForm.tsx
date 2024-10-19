@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { loginSchema, registrationSchema } from "../../schema/auth.schema.ts";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import FormInput from "../FormInput/FormInput.tsx";
+import FormInput from "../../../../components/FormInput/FormInput.tsx";
 import Button from "react-bootstrap/Button";
 import { useTypedSelector } from "../../../../hooks/useTypedSelector.ts";
 import * as formik from "formik";
