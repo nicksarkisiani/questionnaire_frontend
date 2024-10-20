@@ -8,10 +8,15 @@ export interface IQuestion {
     answers: string[]
 }
 
+export interface ITopic {
+    id: number
+    name: string
+}
+
 export interface ITemplate {
     title: string
     description: string
-    topic: string
+    topic: ITopic
     imageURL: string
     isPublic: boolean
     id: number

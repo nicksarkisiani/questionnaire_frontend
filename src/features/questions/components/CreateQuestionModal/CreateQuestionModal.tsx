@@ -29,14 +29,10 @@ const CreateQuestionModal: FC<CreateQuestionFormProps> = ({templateId, onSubmitF
                     <Modal.Title>{t("questionForm")}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <QuestionForm templateId={templateId} onSubmitFunction={onSubmitFunction} changeModalState={changeModalState} />
+                    <QuestionForm templateId={templateId} onSubmitFunction={onSubmitFunction}
+                                  changeModalState={changeModalState}/>
                 </Modal.Body>
 
-                <Modal.Footer className={"mt-5"}>
-                    <Button variant="primary" type="submit">
-                        {t("createQuestion")}
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </>
 

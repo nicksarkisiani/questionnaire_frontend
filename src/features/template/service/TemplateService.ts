@@ -25,6 +25,15 @@ export default class TemplateService {
         return await $api.patch(`/templates/image/${templateId}`, file)
     }
 
+    static async getTopics() {
+        return await $api.get("/topics/all");
+    }
+
+    static async updateTopic(templateId: number, topicId: number) {
+        return await $api.patch(`/templates/update-topic/${templateId}`, {id: topicId})
+    }
+
+
     static async getAll() {
         return await $api.get(`/templates/`)
     }

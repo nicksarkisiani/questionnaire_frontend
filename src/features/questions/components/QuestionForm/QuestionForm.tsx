@@ -7,6 +7,7 @@ import {CustomAxiosError} from "../../../../types/axios.ts";
 import {toast} from "react-toastify";
 import {FC} from "react";
 import {useTranslation} from "react-i18next";
+import Button from "react-bootstrap/Button";
 
 interface QuestionFormProps {
     templateId: number;
@@ -25,7 +26,9 @@ interface FormValues {
 const QuestionForm: FC<QuestionFormProps> = ({templateId, changeModalState, onSubmitFunction}) => {
     const {Formik} = formik;
     const {t} = useTranslation()
+
     const onSubmit = async (values: FormValues) => {
+        console.log('1')
         await createQuestion(values.title, values.description, values.state, values.type, values.answers);
     }
 
@@ -43,7 +46,7 @@ const QuestionForm: FC<QuestionFormProps> = ({templateId, changeModalState, onSu
     }
 
     return (
-        <Formik
+            <Formik
             validationSchema={questionSchema}
             onSubmit={onSubmit}
             initialValues={{
@@ -111,11 +114,17 @@ const QuestionForm: FC<QuestionFormProps> = ({templateId, changeModalState, onSu
                                 {errors.state}
                             </Form.Control.Feedback>
                         </Form.Group>
+
                     )}
+                    <Button variant="primary" type="submit">
+                        {t("createQuestion")}
+                    </Button>
                 </Form>
             )}
         </Formik>
-    );
+
+    )
+        ;
 };
 
 export default QuestionForm;

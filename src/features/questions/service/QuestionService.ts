@@ -11,4 +11,8 @@ export default class QuestionService {
         })
     }
 
+    static async deleteQuestion(templateId: number, questionId: number) {
+        return await $api.delete(`/templates/delete-question/${templateId}`, {data: {id: questionId}})
+    }
+
 }
