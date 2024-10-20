@@ -3,17 +3,15 @@ import {AxiosResponse} from "axios";
 import TemplateService from "../../features/template/service/TemplateService.ts";
 import {useLoaderData} from "react-router";
 import Form from "react-bootstrap/Form";
-import {useTranslation} from "react-i18next";
 import {useState} from "react";
-import {Card} from "react-bootstrap";
-import CreateQuestionForm from "../../features/questions/components/CreateQuestionForm/CreateQuestionForm.tsx";
+import CreateQuestionForm from "../../features/questions/components/CreateQuestionModal/CreateQuestionModal.tsx";
 import fetchData from "../../helpers/fetchData.ts";
-import FormGroup from "../../features/template/components/FormGroup/FormGroup.tsx";
 import ImgInput from "../../features/template/components/ImgInput/ImgInput.tsx";
+import TemplateInput from "../../features/template/components/TemplateInput/TemplateInput.tsx";
+import QuestionCard from "../../features/questions/components/QuestionCard/QuestionCard.tsx";
 
 const TemplatePage = () => {
     const templateData = useLoaderData() as ITemplate
-    const {t} = useTranslation();
     const [template, setTemplate] = useState<ITemplate>(templateData);
 
 
@@ -50,37 +48,20 @@ const TemplatePage = () => {
 
     return (
         <Form>
-            <FormGroup label={"title"} value={template.title} saveData={saveData} changeTemplate={changeTemplate}/>
-            <FormGroup label={"description"} value={template.description} saveData={saveData}
-                       changeTemplate={changeTemplate}/>
-            <FormGroup label={"topic"} value={template.topic} saveData={saveData} changeTemplate={changeTemplate}/>
+
+            <TemplateInput label={"title"} value={template.title} saveData={saveData} changeTemplate={changeTemplate}/>
+            <TemplateInput label={"description"} value={template.description} saveData={saveData}
+                       changeTemplate={changeTemplate} isTextArea={true}/>
+            <TemplateInput label={"topic"} value={template.topic} saveData={saveData} changeTemplate={changeTemplate}/>
 
             <ImgInput uploadImage={uploadImage} url={template.imageURL}/>
-
 
             <CreateQuestionForm templateId={template.id}
                                 onSubmitFunction={updateTemplate}/>
 
 
             {template.questions.map(question => (
-                <Card key={question.id}>
-                    <Form.Group className="mt-5">
-                        <Form.Label>{t("title")}</Form.Label>
-                        <Form.Control value={question.title}/>
-                    </Form.Group>
-                    <Form.Group className="mt-5">
-                        <Form.Label>{t("description")}</Form.Label>
-                        <Form.Control value={question.description}/>
-                    </Form.Group>
-                    <Form.Group className="mt-5">
-                        <Form.Label>{t("type")}</Form.Label>
-                        <Form.Control value={question.type}/>
-                    </Form.Group>
-                    <Form.Group className="mt-5">
-                        <Form.Label>{t("state")}</Form.Label>
-                        <Form.Control value={`${question.state}`}/>
-                    </Form.Group>
-                </Card>
+                <QuestionCard question={question} key={question.id}/>
             ))}
         </Form>
     );

@@ -1,22 +1,24 @@
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import {InputGroup} from "react-bootstrap";
 import {ChangeEventHandler, FC} from "react";
 
 interface FormInputProps {
-    validationId: number;
+    validationId?: number
     name: string;
     value: string;
     translate: string;
     error: string | undefined;
     handleChange: ChangeEventHandler<HTMLInputElement>
     type?: "password" | "email" | "text";
+    classNames?: string
 }
 
-const FormInput: FC<FormInputProps> = ({validationId, name, value, translate, error, handleChange, type="text"}) => {
+const FormInput: FC<FormInputProps> = ({name, value, translate, error, handleChange,validationId, classNames, type = "text"}) => {
     return (
-        <Form.Group as={Col} controlId={`validationFormik${validationId}`}>
+        <Form.Group controlId={`validationFormik${validationId ? validationId : ""}`}
+                    className={classNames ? classNames : ""}>
             <Form.Label>{translate}</Form.Label>
+
             <InputGroup hasValidation>
                 <Form.Control
                     type={type}
@@ -26,7 +28,6 @@ const FormInput: FC<FormInputProps> = ({validationId, name, value, translate, er
                     value={value}
                     onChange={handleChange}
                     isInvalid={!!error}
-
                 />
                 <Form.Control.Feedback type="invalid" tooltip>
                     {error}

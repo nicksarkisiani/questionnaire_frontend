@@ -3,15 +3,17 @@ import {useTranslation} from "react-i18next";
 import {ChangeEvent, FC, useCallback} from "react";
 import {ITemplate, PartialTemplate} from "../../../../types/templates.ts";
 import debounce from "lodash.debounce";
+import {InputGroup} from "react-bootstrap";
 
 interface FormGroupProps {
     label: string
     value: string
     saveData: (data: Partial<ITemplate>) => Promise<void>
     changeTemplate: (name: string, value: string) => void
+    isTextArea?: boolean
 }
 
-const FormGroup: FC<FormGroupProps> = ({label, value, changeTemplate, saveData}) => {
+const TemplateInput: FC<FormGroupProps> = ({label, value, changeTemplate, saveData, isTextArea}) => {
 
     const debouncedSave = useCallback(debounce((nextValue) => saveData(nextValue), 2000), [])
 
@@ -35,11 +37,14 @@ const FormGroup: FC<FormGroupProps> = ({label, value, changeTemplate, saveData})
     const {t} = useTranslation();
 
     return (
-        <Form.Group className="mt-5">
+        <Form.Group className={"mt-5"}>
             <Form.Label>{t(label)}</Form.Label>
-            <Form.Control value={value} onChange={onChange} name={label} onBlur={onBlur}/>
+            <InputGroup hasValidation>
+                <Form.Control value={value} onChange={onChange} name={label} onBlur={onBlur}
+                              as={isTextArea ? "textarea" : "input"}/>
+            </InputGroup>
         </Form.Group>
     );
 };
 
-export default FormGroup;
+export default TemplateInput;
