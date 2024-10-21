@@ -32,7 +32,7 @@ const CreateQuestionModal: FC<CreateQuestionFormProps> = ({templateId, onSubmitF
 
     return (
         <>
-            <Button variant="primary" onClick={() => setIsModalOpen(!isModalOpen)}>
+            <Button variant="primary" onClick={() => setIsModalOpen(!isModalOpen)} className="mt-5 mb-5">
                 {t("createQuestion")}
             </Button>
             <Modal show={isModalOpen} onHide={() => changeModalState(false)}>

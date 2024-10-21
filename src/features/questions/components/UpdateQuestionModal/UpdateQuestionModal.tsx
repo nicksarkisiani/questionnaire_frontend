@@ -6,6 +6,7 @@ import {IQuestion} from "../../../../types/templates.ts";
 import fetchData from "../../../../helpers/fetchData.ts";
 import QuestionService from "../../service/QuestionService.ts";
 import QuestionForm from "../QuestionForm/QuestionForm.tsx";
+import {BsNutFill} from "react-icons/bs";
 
 interface UpdateQuestionModalProps {
     templateId: number
@@ -35,8 +36,8 @@ const UpdateQuestionModal: FC<UpdateQuestionModalProps> = ({templateId, question
 
     return (
         <>
-            <Button variant="primary" onClick={() => setIsModalOpen(true)}>
-                {t("updateQuestion")}
+            <Button variant="primary" onClick={() => setIsModalOpen(true)} className="text-center rounded">
+                <BsNutFill />
             </Button>
             <Modal show={isModalOpen} onHide={() => changeModalState(false)}>
                 <Modal.Header closeButton>

@@ -23,7 +23,7 @@ const MainPage = () => {
                 <CreateTemplate/>
                 <Container className="d-flex flex-row gap-5 pt-3">
                     {templates.map(template => (
-                        <Card key={template.id} style={{ width: '10rem', height: '10rem' }} role="button" onClick={() => navigate(`/templates/${template.id}`)}>
+                        <Card className="bg-light" key={template.id} style={{ width: '10rem', height: '10rem' }} role="button" onClick={() => navigate(`/templates/${template.id}`)}>
                             <p className="lead">{template.title}</p>
                         </Card>
                     ))}

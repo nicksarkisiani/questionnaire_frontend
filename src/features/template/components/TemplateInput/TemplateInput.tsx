@@ -40,7 +40,7 @@ const TemplateInput: FC<FormGroupProps> = ({label, value, changeTemplate, saveDa
         <Form.Group className={"mt-5"}>
             <Form.Label>{t(label)}</Form.Label>
             <InputGroup hasValidation>
-                <Form.Control value={value} onChange={onChange} name={label} onBlur={onBlur}
+                <Form.Control size={"lg"} value={value} onChange={onChange} name={label} onBlur={onBlur}
                               as={isTextArea ? "textarea" : "input"}/>
             </InputGroup>
         </Form.Group>

@@ -1,11 +1,10 @@
 import Form from "react-bootstrap/Form";
-import {Card} from "react-bootstrap";
+import {Card, Container} from "react-bootstrap";
 import {IQuestion} from "../../../../types/templates.ts";
 import {FC} from "react";
 import {useTranslation} from "react-i18next";
-import Button from "react-bootstrap/Button";
-import {BsFillTrashFill} from "react-icons/bs";
 import UpdateQuestionModal from "../UpdateQuestionModal/UpdateQuestionModal.tsx";
+import DeleteQuestionModal from "../DeleteQuestionModal/DeleteQuestionModal.tsx";
 
 interface QuestionCardProps {
     templateId: number,
@@ -19,27 +18,30 @@ const QuestionCard: FC<QuestionCardProps> = ({templateId, question, deleteQuesti
     const {t} = useTranslation()
 
     return (
-        <Card key={question.id}>
+        <Card key={question.id} className="mb-5 bg-light p-3">
             <Form.Group className="mt-5">
                 <Form.Label>{t("title")}</Form.Label>
-                <Form.Label>{question.title}</Form.Label>
+                <p className="lead">{question.title}</p>
 
             </Form.Group>
             <Form.Group className="mt-5">
                 <Form.Label>{t("description")}</Form.Label>
-                <Form.Label>{question.description}</Form.Label>
+                <p className="lead">{question.description}</p>
             </Form.Group>
             <Form.Group className="mt-5">
                 <Form.Label>{t("type")}</Form.Label>
-                <Form.Label>{question.type}</Form.Label>
+                <p className="lead">{question.type}</p>
 
             </Form.Group>
             <Form.Group className="mt-5">
                 <Form.Label>{t("state")}</Form.Label>
-                <Form.Label>{question.state}</Form.Label>
+                <p className="lead">{`${question.state}`}</p>
             </Form.Group>
-            <Button variant="danger" onClick={() => deleteQuestion(question.id)}><BsFillTrashFill /></Button>
-            <UpdateQuestionModal question={question} templateId={templateId} onSubmitFunction={onSubmitFunction}/>
+            <Container className="mt-2 d-flex justify-content-end p-0 gap-2">
+                <DeleteQuestionModal deleteQuestion={() => deleteQuestion(question.id)}/>
+                <UpdateQuestionModal question={question} templateId={templateId} onSubmitFunction={onSubmitFunction}/>
+            </Container>
+
         </Card>
     );
 };

@@ -21,7 +21,7 @@ const ImgInput: FC<ImgInputProps> = ({url, uploadImage}) => {
     return (
         <Form.Group className="mt-5">
             <Form.Label>{t("image")}</Form.Label>
-            <Form.Control type="file" onChange={onImageAdd}/>
+            <Form.Control type="file" onChange={onImageAdd} title={"123"} />
             {url && <Image src={url} className="mt-5 w-25 h-25"/>}
         </Form.Group>
     );

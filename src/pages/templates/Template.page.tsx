@@ -9,7 +9,7 @@ import fetchData from "../../helpers/fetchData.ts";
 import ImgInput from "../../features/template/components/ImgInput/ImgInput.tsx";
 import TemplateInput from "../../features/template/components/TemplateInput/TemplateInput.tsx";
 import QuestionCard from "../../features/questions/components/QuestionCard/QuestionCard.tsx";
-import {InputGroup} from "react-bootstrap";
+import {Container, InputGroup} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
 import QuestionService from "../../features/questions/service/QuestionService.ts";
 
@@ -75,7 +75,7 @@ const TemplatePage = () => {
     }
 
     return (
-        <Form>
+        <Container>
             <TemplateInput label={"title"} value={template.title} saveData={saveData} changeTemplate={changeTemplate}/>
             <TemplateInput label={"description"} value={template.description} saveData={saveData}
                            changeTemplate={changeTemplate} isTextArea={true}/>
@@ -108,7 +108,7 @@ const TemplatePage = () => {
                 <QuestionCard question={question} key={question.id} deleteQuestion={deleteQuestion}
                               onSubmitFunction={updateTemplate} templateId={template.id}/>
             ))}
-        </Form>
+        </Container>
     );
 };
 

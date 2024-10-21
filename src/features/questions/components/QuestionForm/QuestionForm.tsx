@@ -48,14 +48,14 @@ const QuestionForm: FC<QuestionFormProps> = ({onSubmitFunction, initialValues,is
                                translate={t("description")} error={errors.description}
                                handleChange={handleChange} classNames="mt-5"/>
                     <FormSelect name={"type"} translate={t("type")} value={values.type} handleChange={handleChange} error={errors.type}>
-                            <option value="int">Int</option>
-                            <option value="text">Text</option>
-                            <option value="string">String</option>
-                            <option value="checkbox">Checkbox</option>
+                            <option value="int">{t("int")}</option>
+                            <option value="text">{t("text")}</option>
+                            <option value="string">{t("string")}</option>
+                            <option value="checkbox">{t("checkbox")}</option>
                     </FormSelect>
                     <FormSelect name={"state"} translate={t("state")} value={values.state.toString()} handleChange={handleChange} error={errors.state}>
-                            <option value="false">{t("false")}</option>
-                            <option value="true">{t("true")}</option>
+                            <option value="false">{t("no")}</option>
+                            <option value="true">{t("yes")}</option>
                     </FormSelect>
                     {values.type === "checkbox" && (
                         <Form.Group className="mt-5">

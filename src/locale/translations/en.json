@@ -19,5 +19,15 @@
   "type": "Type",
   "state": "Show question?",
   "createQuestion": "Create New Question",
-  "questionForm": "Question Form"
+  "questionForm": "Question Form",
+  "deleteQuestion": "Delete Question",
+  "no": "No",
+  "yes": "Yes",
+  "updateQuestion": "Update Question",
+  "isSure": "You sure?",
+  "int": "Integer",
+  "string": "String",
+  "text": "Text",
+  "checkbox": "Checkbox",
+  "main": "Main"
 }
