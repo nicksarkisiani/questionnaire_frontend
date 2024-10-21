@@ -5,13 +5,16 @@ import {FC} from "react";
 import {useTranslation} from "react-i18next";
 import Button from "react-bootstrap/Button";
 import {BsFillTrashFill} from "react-icons/bs";
+import UpdateQuestionModal from "../UpdateQuestionModal/UpdateQuestionModal.tsx";
 
 interface QuestionCardProps {
+    templateId: number,
     question: IQuestion;
     deleteQuestion: (questionId: number) => Promise<void>;
+    onSubmitFunction: () => Promise<void>
 }
 
-const QuestionCard: FC<QuestionCardProps> = ({question, deleteQuestion}) => {
+const QuestionCard: FC<QuestionCardProps> = ({templateId, question, deleteQuestion, onSubmitFunction}) => {
 
     const {t} = useTranslation()
 
@@ -36,6 +39,7 @@ const QuestionCard: FC<QuestionCardProps> = ({question, deleteQuestion}) => {
                 <Form.Label>{question.state}</Form.Label>
             </Form.Group>
             <Button variant="danger" onClick={() => deleteQuestion(question.id)}><BsFillTrashFill /></Button>
+            <UpdateQuestionModal question={question} templateId={templateId} onSubmitFunction={onSubmitFunction}/>
         </Card>
     );
 };

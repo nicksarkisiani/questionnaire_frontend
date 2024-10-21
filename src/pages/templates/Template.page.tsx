@@ -105,7 +105,8 @@ const TemplatePage = () => {
 
 
             {template.questions.map(question => (
-                <QuestionCard question={question} key={question.id} deleteQuestion={deleteQuestion}/>
+                <QuestionCard question={question} key={question.id} deleteQuestion={deleteQuestion}
+                              onSubmitFunction={updateTemplate} templateId={template.id}/>
             ))}
         </Form>
     );

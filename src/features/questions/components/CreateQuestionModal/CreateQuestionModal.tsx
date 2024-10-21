@@ -3,6 +3,8 @@ import {Modal} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {FC, useState} from "react";
 import QuestionForm from "../QuestionForm/QuestionForm.tsx";
+import QuestionService from "../../service/QuestionService.ts";
+import fetchData from "../../../../helpers/fetchData.ts";
 
 interface CreateQuestionFormProps {
     templateId: number;
@@ -18,6 +20,15 @@ const CreateQuestionModal: FC<CreateQuestionFormProps> = ({templateId, onSubmitF
         setIsModalOpen(bool);
     }
 
+    const createQuestion = async (title: string, description: string, state: boolean, type: string, answers?: string[]) => {
+        await fetchData(async () => {
+            const question = await QuestionService.createQuestion(templateId, title, description, state, type, answers)
+            if (question) {
+                changeModalState(false)
+                onSubmitFunction()
+            }
+        })
+    }
 
     return (
         <>
@@ -29,8 +40,12 @@ const CreateQuestionModal: FC<CreateQuestionFormProps> = ({templateId, onSubmitF
                     <Modal.Title>{t("questionForm")}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <QuestionForm templateId={templateId} onSubmitFunction={onSubmitFunction}
-                                  changeModalState={changeModalState}/>
+                    <QuestionForm onSubmitFunction={createQuestion} initialValues={{
+                        title: "",
+                        description: "",
+                        type: "int",
+                        state: false
+                    }}/>
                 </Modal.Body>
 
             </Modal>

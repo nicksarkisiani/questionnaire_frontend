@@ -1,12 +1,16 @@
 
-export interface IQuestion {
-    id: number
-    title: string
-    description: string
+export interface ICreateQuestion {
+    title: string;
+    description: string;
     type: "string" | "int" | "checkbox" | "text"
     state: boolean
-    answers: string[]
+    answers?: string[]
 }
+
+export interface IQuestion extends ICreateQuestion{
+    id: number
+}
+
 
 export interface ITopic {
     id: number

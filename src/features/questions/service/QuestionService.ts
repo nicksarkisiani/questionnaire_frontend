@@ -15,4 +15,16 @@ export default class QuestionService {
         return await $api.delete(`/templates/delete-question/${templateId}`, {data: {id: questionId}})
     }
 
+    static async patchQuestion(templateId: number, questionId: number, title: string, description: string, state: boolean, type: string, answers?: string[]) {
+        return await $api.patch(`/templates/update-question/${templateId}`,  {
+            id: questionId,
+            title,
+            description,
+            state,
+            type,
+            answers
+        })
+    }
+
+
 }
