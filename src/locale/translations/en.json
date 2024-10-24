@@ -29,5 +29,10 @@
   "string": "String",
   "text": "Text",
   "checkbox": "Checkbox",
-  "main": "Main"
+  "main": "Main",
+  "chooseTopic": "Choose Topic",
+  "isPublic": "Make your template public?",
+  "answers": "Possible Answers",
+  "possibleAnswer": "Possible Answer",
+  "question": "Question"
 }

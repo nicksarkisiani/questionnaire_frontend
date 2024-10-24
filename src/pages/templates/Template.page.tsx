@@ -67,6 +67,7 @@ const TemplatePage = () => {
         })
     }
 
+
     const deleteQuestion = async (questionId: number) => {
         await fetchData(async () => {
             await QuestionService.deleteQuestion(template.id, questionId)
@@ -98,15 +99,28 @@ const TemplatePage = () => {
                 </InputGroup>
             </Form.Group>
 
+            <Form.Group className={"mt-5"}>
+                <Form.Label>{t("isPublic")}</Form.Label>
+                <InputGroup hasValidation>
+                    <Form.Select
+                        value={`${template.isPublic}`}
+                        onChange={(e) => saveData({ isPublic: e.target.value === "true" })}
+                    >
+                        <option value="true">{t("yes")}</option>
+                        <option value="false">{t("no")}</option>
+                    </Form.Select>
+                </InputGroup>
+            </Form.Group>
+
             <ImgInput uploadImage={uploadImage} url={template.imageURL}/>
 
             <CreateQuestionForm templateId={template.id}
                                 onSubmitFunction={updateTemplate}/>
 
 
-            {template.questions.map(question => (
+            {template.questions.map((question, index) => (
                 <QuestionCard question={question} key={question.id} deleteQuestion={deleteQuestion}
-                              onSubmitFunction={updateTemplate} templateId={template.id}/>
+                              onSubmitFunction={updateTemplate} templateId={template.id} index={index + 1}/>
             ))}
         </Container>
     );
