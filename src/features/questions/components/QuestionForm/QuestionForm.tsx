@@ -29,7 +29,7 @@ const QuestionForm: FC<QuestionFormProps> = ({onSubmitFunction, initialValues, i
     const {Formik} = formik;
     const {t} = useTranslation()
 
-    const [answers, setAnswers] = useState<string[]>([]);
+    const [answers, setAnswers] = useState<string[]>(initialValues?.answers || []);
 
     const onSubmit = async (values: FormValues) => {
         await onSubmitFunction(values.title, values.description, values.state, values.type, answers);
@@ -41,7 +41,7 @@ const QuestionForm: FC<QuestionFormProps> = ({onSubmitFunction, initialValues, i
 
     const handleInputChange = (index: number, event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const newAnswers = [...answers];
-        newAnswers[index] = event.target.value; // Обновляем значение по индексу
+        newAnswers[index] = event.target.value;
         setAnswers(newAnswers);
     };
 

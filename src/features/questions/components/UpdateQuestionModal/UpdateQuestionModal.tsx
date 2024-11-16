@@ -49,6 +49,7 @@ const UpdateQuestionModal: FC<UpdateQuestionModalProps> = ({templateId, question
                         description: question.description,
                         type: question.type,
                         state: question.state,
+                        answers: question.answers
                     }}
                         isUpdate={true}
                     />
